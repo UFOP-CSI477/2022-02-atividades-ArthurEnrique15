@@ -2,11 +2,11 @@
 
 ## Atualize os seus dados
 
-- Nome:
-- Matrícula:
-- Curso:
-- Semestre/Ano correntes:
-- Link para o seu GitHub:
+- Nome: Arthur Enrique Ribeiro Silva
+- Matrícula: 20.1.8016
+- Curso: Sistemas de informação
+- Semestre/Ano correntes: 22.2
+- Link para o seu GitHub: https://github.com/arthurenrique15
 
 ## [Projeto final:](./Projeto/README.md)
 
