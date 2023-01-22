@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --poll --respawn src/server.ts",
-    "typeorm": "typeorm-ts-node-commonjs"
+    "typeorm": "typeorm-ts-node-commonjs",
+    "typeorm:run": "npm run typeorm -- migration:run -d ./db-config.ts",
+    "typeorm:revert": "npm run typeorm -- migration:revert -d ./db-config.ts"
   },
   "keywords": [],
   "author": "",
