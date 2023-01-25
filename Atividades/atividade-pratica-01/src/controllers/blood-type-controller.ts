@@ -13,6 +13,8 @@ export class BloodTypeController {
 
     const createResponse = await this.bloodTypeService.create({ type, factor });
 
+    console.log(createResponse);
+
     return response.json(createResponse);
   }
 }

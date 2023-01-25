@@ -1,6 +1,6 @@
 # **CSI606-2021-02 - Remoto - Proposta de Trabalho Final**
 
-## *Aluna(o): Arthur Enrique*
+## *Aluna(o): Princesa Leia (Luke Skywalker)*
 
 --------------
 
