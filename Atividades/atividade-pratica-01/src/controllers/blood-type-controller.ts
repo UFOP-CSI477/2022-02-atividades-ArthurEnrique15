@@ -13,8 +13,6 @@ export class BloodTypeController {
 
     const createResponse = await this.bloodTypeService.create({ type, factor });
 
-    console.log(createResponse);
-
     return response.json(createResponse);
   }
 
@@ -28,8 +26,6 @@ export class BloodTypeController {
       factor,
     });
 
-    console.log(updateResponse);
-
     return response.json(updateResponse);
   }
 
@@ -38,8 +34,20 @@ export class BloodTypeController {
 
     const deleteResponse = await this.bloodTypeService.delete(Number(id));
 
-    console.log(deleteResponse);
-
     return response.json(deleteResponse);
+  }
+
+  async findAll(request: Request, response: Response) {
+    const bloodTypes = await this.bloodTypeService.findAll();
+
+    return response.json(bloodTypes);
+  }
+
+  async findById(request: Request, response: Response) {
+    const { id } = request.headers;
+
+    const bloodType = await this.bloodTypeService.findById(Number(id));
+
+    return response.json(bloodType);
   }
 }

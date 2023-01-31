@@ -54,4 +54,20 @@ export class BloodTypeService {
 
     return { message: 'Blood Type deleted successfully!' };
   }
+
+  async findAll() {
+    const bloodTypes = await this.repository.find();
+
+    return bloodTypes;
+  }
+
+  async findById(id: number) {
+    const bloodType = await this.repository.findOne({ where: { id } });
+
+    if (!bloodType) {
+      throw new AppError('Blood Type not found!');
+    }
+
+    return bloodType;
+  }
 }
