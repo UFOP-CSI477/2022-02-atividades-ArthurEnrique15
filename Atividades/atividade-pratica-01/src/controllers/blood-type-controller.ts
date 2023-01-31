@@ -32,4 +32,14 @@ export class BloodTypeController {
 
     return response.json(updateResponse);
   }
+
+  async delete(request: Request, response: Response) {
+    const { id } = request.headers;
+
+    const deleteResponse = await this.bloodTypeService.delete(Number(id));
+
+    console.log(deleteResponse);
+
+    return response.json(deleteResponse);
+  }
 }

@@ -38,4 +38,20 @@ export class BloodTypeService {
 
     return updateResponse;
   }
+
+  async delete(id: number) {
+    const bloodType = await this.repository.findOne({ where: { id } });
+
+    if (!bloodType) {
+      throw new AppError('Blood Type not found!');
+    }
+
+    const deleteResponse = await this.repository.delete({ id });
+
+    if (!deleteResponse.affected) {
+      throw new AppError('Failed to delete blood type!');
+    }
+
+    return { message: 'Blood Type deleted successfully!' };
+  }
 }

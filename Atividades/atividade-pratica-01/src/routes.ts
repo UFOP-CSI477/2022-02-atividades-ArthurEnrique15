@@ -7,5 +7,6 @@ const router = Router();
 
 router.post('/blood-type', bloodTypeController.create.bind(bloodTypeController));
 router.patch('/blood-type', bloodTypeController.update.bind(bloodTypeController));
+router.delete('/blood-type', bloodTypeController.delete.bind(bloodTypeController));
 
 export { router };
