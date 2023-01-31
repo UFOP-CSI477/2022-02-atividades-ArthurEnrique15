@@ -17,4 +17,19 @@ export class BloodTypeController {
 
     return response.json(createResponse);
   }
+
+  async update(request: Request, response: Response) {
+    const { id } = request.headers;
+    const { type, factor } = request.body;
+
+    const updateResponse = await this.bloodTypeService.update({
+      id: Number(id),
+      type,
+      factor,
+    });
+
+    console.log(updateResponse);
+
+    return response.json(updateResponse);
+  }
 }

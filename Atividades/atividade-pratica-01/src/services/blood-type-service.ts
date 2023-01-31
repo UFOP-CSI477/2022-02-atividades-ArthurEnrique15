@@ -2,7 +2,7 @@ import { Repository } from 'typeorm';
 import { dataSource } from '../../db-config';
 import { BloodType } from '../database/entities/blood-type';
 import { AppError } from '../errors/app-error';
-import { CreateBloodTypeDTO } from './dtos/blood-type-dto';
+import { CreateBloodTypeDTO, UpdateBloodTypeDTO } from './dtos/blood-type-dto';
 
 export class BloodTypeService {
   private repository: Repository<BloodType>;
@@ -25,5 +25,17 @@ export class BloodTypeService {
     const createdBloodType = this.repository.save(bloodType);
 
     return createdBloodType;
+  }
+
+  async update({ id, type, factor }: UpdateBloodTypeDTO) {
+    const bloodType = await this.repository.findOne({ where: { id } });
+
+    if (!bloodType) {
+      throw new AppError('Blood Type not found!');
+    }
+
+    const updateResponse = await this.repository.save({ id, type, factor });
+
+    return updateResponse;
   }
 }
