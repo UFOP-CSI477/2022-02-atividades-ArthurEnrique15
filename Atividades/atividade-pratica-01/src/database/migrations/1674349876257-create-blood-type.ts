@@ -38,6 +38,12 @@ export class createBloodType1674349876257 implements MigrationInterface {
           isNullable: true,
         },
       ],
+      uniques: [
+        {
+          name: 'unique_blood_type',
+          columnNames: ['type', 'factor'],
+        },
+      ],
     }));
   }
 
