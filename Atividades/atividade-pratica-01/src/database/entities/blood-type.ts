@@ -10,7 +10,7 @@ import {
 @Entity()
 export class BloodType {
   @PrimaryGeneratedColumn()
-    id: string;
+    id: number;
 
   @Column()
     type: string;
