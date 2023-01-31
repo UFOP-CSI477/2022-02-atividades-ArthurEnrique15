@@ -18,5 +18,10 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'class-methods-use-this': 'off',
     'import/extensions': 'off',
+    'import/no-unresolved': 'off',
+    'no-useless-constructor': 'off',
+    'no-empty-function': 'off',
+    'no-unused-vars': 'off',
+    'implicit-arrow-linebreak': 'off',
   },
 };
