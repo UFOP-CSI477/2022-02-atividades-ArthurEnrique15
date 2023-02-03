@@ -78,6 +78,6 @@ export class createPerson1675382060570 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('blood_type');
+    await queryRunner.dropTable('person');
   }
 }
