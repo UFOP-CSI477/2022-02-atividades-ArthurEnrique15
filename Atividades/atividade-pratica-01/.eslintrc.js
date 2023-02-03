@@ -23,5 +23,14 @@ module.exports = {
     'no-empty-function': 'off',
     'no-unused-vars': 'off',
     'implicit-arrow-linebreak': 'off',
+    'object-curly-newline': [
+      'error',
+      {
+        ObjectExpression: { multiline: true },
+        ObjectPattern: { multiline: true },
+      },
+    ],
+    'max-len': ['error', { code: 120 }],
+    camelcase: 'off',
   },
 };
