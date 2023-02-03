@@ -65,7 +65,7 @@ export class PersonController {
   async findByName(request: Request, response: Response) {
     const { name } = request.headers;
 
-    const person = await this.personService.findByName(name);
+    const person = await this.personService.findByName(name as string);
 
     return response.json(person);
   }
