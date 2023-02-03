@@ -3,9 +3,11 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Person } from './person';
 
 @Entity()
 export class BloodType {
@@ -18,12 +20,15 @@ export class BloodType {
   @Column()
     factor: string;
 
+  // @OneToMany((type) => Person, (person) => person.bloodType)
+  //   persons: Person[];
+
   @CreateDateColumn()
-    created_at: Date;
+    createdAt: Date;
 
   @UpdateDateColumn()
-    updated_at?: Date;
+    updatedAt?: Date;
 
   @DeleteDateColumn()
-    deleted_at?: Date;
+    deletedAt?: Date;
 }

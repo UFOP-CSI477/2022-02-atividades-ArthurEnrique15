@@ -23,17 +23,17 @@ export class createBloodType1674349876257 implements MigrationInterface {
           isNullable: false,
         },
         {
-          name: 'created_at',
+          name: 'createdAt',
           type: 'timestamp',
           default: 'now()',
         },
         {
-          name: 'updated_at',
+          name: 'updatedAt',
           type: 'timestamp',
           isNullable: true,
         },
         {
-          name: 'deleted_at',
+          name: 'deletedAt',
           type: 'timestamp',
           isNullable: true,
         },
