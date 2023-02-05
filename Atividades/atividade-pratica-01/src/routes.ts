@@ -1,11 +1,13 @@
 import { Router } from 'express';
 import { BloodTypeController } from './controllers/blood-type-controller';
 import { CollectionPlaceController } from './controllers/collection-place-controller';
+import { DonationController } from './controllers/donation-controller';
 import { PersonController } from './controllers/person-controller';
 
 const bloodTypeController = new BloodTypeController();
 const personController = new PersonController();
 const collectionPlaceController = new CollectionPlaceController();
+const donationController = new DonationController();
 
 const router = Router();
 
@@ -28,5 +30,11 @@ router.delete('/collection-place', collectionPlaceController.delete.bind(collect
 router.get('/collection-place/all', collectionPlaceController.findAll.bind(collectionPlaceController));
 router.get('/collection-place', collectionPlaceController.findById.bind(collectionPlaceController));
 router.get('/collection-place/name', collectionPlaceController.findByName.bind(collectionPlaceController));
+
+router.post('/donation', donationController.create.bind(donationController));
+router.patch('/donation', donationController.update.bind(donationController));
+router.delete('/donation', donationController.delete.bind(donationController));
+router.get('/donation/all', donationController.findAll.bind(donationController));
+router.get('/donation', donationController.findById.bind(donationController));
 
 export { router };
