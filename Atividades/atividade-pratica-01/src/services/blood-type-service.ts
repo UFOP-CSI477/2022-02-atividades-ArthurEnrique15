@@ -12,9 +12,7 @@ export class BloodTypeService {
   }
 
   async create({ type, factor }: CreateBloodTypeDTO) {
-    const bloodTypeAlreadyExists = await this.repository.findOne({
-      where: { type, factor },
-    });
+    const bloodTypeAlreadyExists = await this.repository.findOne({ where: { type, factor } });
 
     if (bloodTypeAlreadyExists) {
       throw new AppError('Blood Type already exists!');
