@@ -1,7 +1,6 @@
 import {
   Column,
   CreateDateColumn,
-  DeleteDateColumn,
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
@@ -37,7 +36,4 @@ export class Person {
 
   @UpdateDateColumn()
     updatedAt?: Date;
-
-  @DeleteDateColumn()
-    deletedAt?: Date;
 }

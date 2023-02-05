@@ -32,11 +32,6 @@ export class createBloodType1674349876257 implements MigrationInterface {
           type: 'timestamp',
           isNullable: true,
         },
-        {
-          name: 'deletedAt',
-          type: 'timestamp',
-          isNullable: true,
-        },
       ],
       uniques: [
         {

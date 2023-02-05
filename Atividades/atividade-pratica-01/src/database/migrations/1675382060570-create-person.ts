@@ -48,11 +48,6 @@ export class createPerson1675382060570 implements MigrationInterface {
           isNullable: true,
         },
         {
-          name: 'deletedAt',
-          type: 'timestamp',
-          isNullable: true,
-        },
-        {
           name: 'bloodTypeId',
           type: 'int',
           isNullable: true,

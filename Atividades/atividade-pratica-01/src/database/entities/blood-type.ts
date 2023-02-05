@@ -1,7 +1,6 @@
 import {
   Column,
   CreateDateColumn,
-  DeleteDateColumn,
   Entity,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -28,7 +27,4 @@ export class BloodType {
 
   @UpdateDateColumn()
     updatedAt?: Date;
-
-  @DeleteDateColumn()
-    deletedAt?: Date;
 }
