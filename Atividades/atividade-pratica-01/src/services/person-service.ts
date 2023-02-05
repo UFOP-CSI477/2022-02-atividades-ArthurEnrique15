@@ -60,6 +60,15 @@ export class PersonService {
       throw new AppError('Person not found!');
     }
 
+    let bloodType: BloodType | null = null;
+    if (bloodTypeId) {
+      bloodType = await this.bloodTypeRepository.findOne({ where: { id: bloodTypeId } });
+
+      if (!bloodType) {
+        throw new AppError('Person not found!');
+      }
+    }
+
     const updateResponse = await this.personRepository.save({
       id,
       document,
@@ -67,7 +76,7 @@ export class PersonService {
       number,
       complement,
       street,
-      bloodTypeId,
+      bloodType: bloodType || undefined,
     });
 
     return updateResponse;
