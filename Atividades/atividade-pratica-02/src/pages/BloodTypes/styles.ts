@@ -7,7 +7,9 @@ export const BloodTypeContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 100%;
+  width: 50%;
 
-  gap: 8rem;
+  gap: 2.5rem;
+
+  margin-bottom: 2rem;
 `

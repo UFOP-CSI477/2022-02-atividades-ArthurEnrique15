@@ -10,6 +10,14 @@ export const defaultTheme = {
   'purple-dark': '#4B2995',
   'purple-light': '#EBE5F9',
 
+  green: '#008000',
+  'green-dark': '#006400',
+  'green-light': '#90EE90',
+
+  red: '#FF0000',
+  'red-dark': '#B22222',
+  'red-light': '#FFC0CB',
+
   'base-hover': '#D7D5D5',
   'base-button': '#E6E5E5',
   'base-input': '#EDEDED',

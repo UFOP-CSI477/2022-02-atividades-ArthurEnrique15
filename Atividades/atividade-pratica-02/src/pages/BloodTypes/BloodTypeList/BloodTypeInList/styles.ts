@@ -1,38 +1,17 @@
 import styled from 'styled-components'
 
-export const BloodTypeFormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  gap: 0.75rem;
-
-  width: 100%;
-`
-
-export const TitleContainer = styled.div`
-  color: ${(props) => props.theme['base-subtitle']};
-
-  font-family: 'Baloo 2';
-  font-weight: 700;
-  font-size: 1.5rem;
-
-  margin-bottom: 0.25rem;
-`
-
-export const FormContainer = styled.div`
+export const BloodTypeInListContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  gap: 1.5rem;
+  gap: 0.5rem;
 
   background-color: ${(props) => props.theme['base-card']};
 
   border-radius: 6px;
 
-  padding: 1.5rem;
+  padding: 1rem;
 
   width: 100%;
 `
@@ -71,6 +50,8 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  gap: 0.5rem;
 `
 
 export const SubmitButton = styled.button`
@@ -80,7 +61,7 @@ export const SubmitButton = styled.button`
   border-radius: 6px;
 
   color: ${({ theme }) => theme.white};
-  background-color: ${({ theme }) => theme.green};
+  background-color: ${({ theme }) => theme.yellow};
 
   text-transform: uppercase;
 
@@ -92,6 +73,42 @@ export const SubmitButton = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: ${({ theme }) => theme['green-dark']};
+    background-color: ${({ theme }) => theme['yellow-dark']};
+  }
+`
+
+const BaseButton = styled.button`
+  width: 10rem;
+  height: 2.5rem;
+
+  border-radius: 6px;
+
+  color: ${({ theme }) => theme.white};
+  background-color: ${({ theme }) => theme.yellow};
+
+  text-transform: uppercase;
+
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 160%;
+
+  transition: 0.2s;
+`
+
+export const EditButton = styled(BaseButton)`
+  background-color: ${({ theme }) => theme.yellow};
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme['yellow-dark']};
+  }
+`
+
+export const DeleteButton = styled(BaseButton)`
+  background-color: ${({ theme }) => theme.red};
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme['red-dark']};
   }
 `
