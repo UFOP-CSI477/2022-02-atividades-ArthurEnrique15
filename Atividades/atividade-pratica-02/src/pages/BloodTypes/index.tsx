@@ -1,3 +1,10 @@
+import { BloodTypeForm } from './BloodTypeForm'
+import { BloodTypeContainer } from './styles'
+
 export function BloodTypes() {
-  return <h1>BloodTypes</h1>
+  return (
+    <BloodTypeContainer>
+      <BloodTypeForm></BloodTypeForm>
+    </BloodTypeContainer>
+  )
 }
