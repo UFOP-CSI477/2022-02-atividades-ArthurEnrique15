@@ -45,6 +45,11 @@ export function BloodTypeInList({
   }
 
   function handleFinishEditing() {
+    if (type === initialType && factor === initialFactor) {
+      setIsEditing(false)
+      return
+    }
+
     const confirmed = window.confirm('Deseja realmente atualizar os dados?')
     if (confirmed) {
       axios
