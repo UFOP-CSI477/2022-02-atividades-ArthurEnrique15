@@ -8,13 +8,10 @@ import { IBloodType } from '../../../interfaces/IBloodType'
 export function BloodTypeList() {
   const [bloodTypes, setBloodTypes] = useState<IBloodType[]>([])
 
-  console.log(serverUrl)
-
   useEffect(() => {
     axios
       .get(`${serverUrl}/blood-type/all`)
       .then((response) => {
-        console.log(response.data)
         setBloodTypes(response.data)
       })
       .catch((error) => {
