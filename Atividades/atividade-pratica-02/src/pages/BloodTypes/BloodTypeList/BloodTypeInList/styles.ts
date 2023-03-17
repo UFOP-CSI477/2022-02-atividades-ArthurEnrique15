@@ -20,9 +20,14 @@ export const InputsContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
+`
+
+export const FieldContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
   input {
-    width: 50%;
     height: 2.5rem;
     color: ${(props) => props.theme['base-text']};
 
@@ -36,17 +41,17 @@ export const InputsContainer = styled.div`
     transition: 0.1s;
   }
 
-  input::placeholder {
-    color: ${(props) => props.theme['base-label']};
-    font-size: 0.875rem;
-  }
-
   input:focus {
     border-color: ${(props) => props.theme['yellow-dark']};
   }
 
   input:disabled {
     background-color: ${(props) => props.theme['base-hover']};
+  }
+
+  label {
+    color: ${(props) => props.theme['base-text']};
+    font-size: 0.875rem;
   }
 `
 

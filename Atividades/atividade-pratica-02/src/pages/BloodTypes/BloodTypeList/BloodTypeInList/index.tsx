@@ -8,6 +8,7 @@ import {
   EditButton,
   DeleteButton,
   SaveButton,
+  FieldContainer,
 } from './styles'
 
 interface BloodTypeInListProps {
@@ -89,22 +90,29 @@ export function BloodTypeInList({
   return (
     <BloodTypeInListContainer>
       <InputsContainer>
-        <input
-          disabled={!isEditing}
-          id="type"
-          type="text"
-          placeholder="Tipo"
-          value={type}
-          onChange={handleTypeChange}
-        />
-        <input
-          disabled={!isEditing}
-          id="factor"
-          type="text"
-          placeholder="Fator"
-          value={factor}
-          onChange={handleFactorChange}
-        />
+        <FieldContainer>
+          <label htmlFor="type">Tipo</label>
+          <input
+            disabled={!isEditing}
+            id="type"
+            type="text"
+            placeholder="Tipo"
+            value={type}
+            onChange={handleTypeChange}
+          />
+        </FieldContainer>
+
+        <FieldContainer>
+          <label htmlFor="factor">Fator</label>
+          <input
+            disabled={!isEditing}
+            id="factor"
+            type="text"
+            placeholder="Fator"
+            value={factor}
+            onChange={handleFactorChange}
+          />
+        </FieldContainer>
       </InputsContainer>
 
       <ButtonContainer>
