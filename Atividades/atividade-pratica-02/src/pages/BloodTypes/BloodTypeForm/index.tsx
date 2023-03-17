@@ -8,6 +8,7 @@ import {
   BloodTypeFormContainer,
   SubmitButton,
   ButtonContainer,
+  FormInput,
 } from './styles'
 
 export function BloodTypeForm() {
@@ -46,14 +47,14 @@ export function BloodTypeForm() {
       </TitleContainer>
       <FormContainer>
         <InputsContainer>
-          <input
+          <FormInput
             id="type"
             type="text"
             placeholder="Tipo"
             onChange={handleTypeChange}
           />
 
-          <input
+          <FormInput
             id="factor"
             type="text"
             placeholder="Fator"

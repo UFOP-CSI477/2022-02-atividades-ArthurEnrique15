@@ -41,28 +41,28 @@ export const InputsContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
+`
 
-  input {
-    width: 50%;
-    height: 2.5rem;
-    color: ${(props) => props.theme['base-text']};
+export const FormInput = styled.input`
+  width: 50%;
+  height: 2.5rem;
+  color: ${(props) => props.theme['base-text']};
 
-    background-color: ${(props) => props.theme['base-input']};
+  background-color: ${(props) => props.theme['base-input']};
 
-    border: 1px solid ${(props) => props.theme['base-button']};
-    border-radius: 4px;
+  border: 1px solid ${(props) => props.theme['base-button']};
+  border-radius: 4px;
 
-    padding: 0.75rem;
+  padding: 0.75rem;
 
-    transition: 0.1s;
-  }
+  transition: 0.1s;
 
-  input::placeholder {
+  &::placeholder {
     color: ${(props) => props.theme['base-label']};
     font-size: 0.875rem;
   }
 
-  input:focus {
+  &:focus {
     border-color: ${(props) => props.theme['yellow-dark']};
   }
 `
