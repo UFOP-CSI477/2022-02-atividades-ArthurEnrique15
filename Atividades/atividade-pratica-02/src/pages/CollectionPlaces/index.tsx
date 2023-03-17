@@ -1,3 +1,12 @@
+import { CollectionPlaceForm } from './CollectionPlaceForm'
+import { CollectionPlaceList } from './CollectionPlaceList'
+import { CollectionPlaceContainer } from './styles'
+
 export function CollectionPlaces() {
-  return <h1>CollectionPlaces</h1>
+  return (
+    <CollectionPlaceContainer>
+      <CollectionPlaceForm></CollectionPlaceForm>
+      <CollectionPlaceList></CollectionPlaceList>
+    </CollectionPlaceContainer>
+  )
 }
