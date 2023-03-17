@@ -44,6 +44,10 @@ export const InputsContainer = styled.div`
   input:focus {
     border-color: ${(props) => props.theme['yellow-dark']};
   }
+
+  input:disabled {
+    background-color: ${(props) => props.theme['base-hover']};
+  }
 `
 
 export const ButtonContainer = styled.div`

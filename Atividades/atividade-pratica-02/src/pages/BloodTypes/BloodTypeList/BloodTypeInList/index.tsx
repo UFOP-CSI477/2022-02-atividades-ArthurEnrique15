@@ -6,12 +6,24 @@ import {
   DeleteButton,
 } from './styles'
 
-export function BloodTypeInList() {
+interface BloodTypeInListProps {
+  id: number
+  type: string
+  factor: string
+}
+
+export function BloodTypeInList({ id, type, factor }: BloodTypeInListProps) {
   return (
     <BloodTypeInListContainer>
       <InputsContainer>
-        <input id="type" type="text" placeholder="Tipo" />
-        <input id="factor" type="text" placeholder="Fator" />
+        <input disabled id="type" type="text" placeholder="Tipo" value={type} />
+        <input
+          disabled
+          id="factor"
+          type="text"
+          placeholder="Fator"
+          value={factor}
+        />
       </InputsContainer>
 
       <ButtonContainer>
