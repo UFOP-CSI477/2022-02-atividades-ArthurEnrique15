@@ -14,16 +14,26 @@ interface BloodTypeInListProps {
   id: number
   type: string
   factor: string
+  handleDeleteBloodType: (id: number) => void
 }
 
 export function BloodTypeInList({
   id,
   type: initialType,
   factor: initialFactor,
+  handleDeleteBloodType,
 }: BloodTypeInListProps) {
   const [isEditing, setIsEditing] = useState(false)
   const [type, setType] = useState(initialType)
   const [factor, setFactor] = useState(initialFactor)
+
+  function handleTypeChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setType(event.target.value)
+  }
+
+  function handleFactorChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setFactor(event.target.value)
+  }
 
   function resetInputs() {
     setType(initialType)
@@ -53,12 +63,22 @@ export function BloodTypeInList({
     setIsEditing(false)
   }
 
-  function handleTypeChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setType(event.target.value)
-  }
-
-  function handleFactorChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setFactor(event.target.value)
+  function handleDelete() {
+    const confirmed = window.confirm(
+      'Deseja realmente deletar este tipo sanguíneo?',
+    )
+    if (confirmed) {
+      axios
+        .delete(`${serverUrl}/blood-type`, { headers: { id } })
+        .then(() => {
+          alert('Tipo sanguíneo deletado com sucesso!')
+          handleDeleteBloodType(id)
+        })
+        .catch((error) => {
+          alert('Erro ao deletar tipo sanguíneo')
+          console.error(error)
+        })
+    }
   }
 
   return (
@@ -89,7 +109,7 @@ export function BloodTypeInList({
           <EditButton onClick={handleStartEditing}>Editar</EditButton>
         )}
 
-        <DeleteButton>Deletar</DeleteButton>
+        <DeleteButton onClick={handleDelete}>Deletar</DeleteButton>
       </ButtonContainer>
     </BloodTypeInListContainer>
   )

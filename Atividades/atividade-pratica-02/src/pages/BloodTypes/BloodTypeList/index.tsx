@@ -22,6 +22,14 @@ export function BloodTypeList() {
       })
   }, [])
 
+  function handleDeleteBloodType(id: number) {
+    const bloodTypesWithoutDeleted = bloodTypes.filter(
+      (bloodType) => bloodType.id !== id,
+    )
+
+    setBloodTypes(bloodTypesWithoutDeleted)
+  }
+
   return (
     <BloodTypeListContainer>
       <TitleContainer>
@@ -35,6 +43,7 @@ export function BloodTypeList() {
             id={bloodType.id}
             type={bloodType.type}
             factor={bloodType.factor}
+            handleDeleteBloodType={handleDeleteBloodType}
           />
         ))}
       </ListContainer>
