@@ -28,12 +28,15 @@ export function BloodTypeInList({
   const [type, setType] = useState(initialType)
   const [factor, setFactor] = useState(initialFactor)
 
-  function handleTypeChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setType(event.target.value)
-  }
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { id, value } = event.target
 
-  function handleFactorChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setFactor(event.target.value)
+    const inputsActions = {
+      type: () => setType(value),
+      factor: () => setFactor(value),
+    }
+
+    inputsActions[id as keyof typeof inputsActions]()
   }
 
   function resetInputs() {
@@ -98,7 +101,7 @@ export function BloodTypeInList({
             type="text"
             placeholder="Tipo"
             value={type}
-            onChange={handleTypeChange}
+            onChange={handleInputChange}
           />
         </FieldContainer>
 
@@ -110,7 +113,7 @@ export function BloodTypeInList({
             type="text"
             placeholder="Fator"
             value={factor}
-            onChange={handleFactorChange}
+            onChange={handleInputChange}
           />
         </FieldContainer>
       </InputsContainer>

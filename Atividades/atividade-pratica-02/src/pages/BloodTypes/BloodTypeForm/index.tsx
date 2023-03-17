@@ -15,12 +15,15 @@ export function BloodTypeForm() {
   const [type, setType] = useState('')
   const [factor, setFactor] = useState('')
 
-  function handleTypeChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setType(event.target.value)
-  }
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { id, value } = event.target
 
-  function handleFactorChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setFactor(event.target.value)
+    const inputsActions = {
+      type: () => setType(value),
+      factor: () => setFactor(value),
+    }
+
+    inputsActions[id as keyof typeof inputsActions]()
   }
 
   function handleSubmitForm() {
@@ -51,14 +54,14 @@ export function BloodTypeForm() {
             id="type"
             type="text"
             placeholder="Tipo"
-            onChange={handleTypeChange}
+            onChange={handleInputChange}
           />
 
           <FormInput
             id="factor"
             type="text"
             placeholder="Fator"
-            onChange={handleFactorChange}
+            onChange={handleInputChange}
           />
         </InputsContainer>
 
