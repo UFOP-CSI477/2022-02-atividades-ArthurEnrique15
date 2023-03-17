@@ -5,7 +5,7 @@ export const BloodTypeInListContainer = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  gap: 0.5rem;
+  gap: 1.5rem;
 
   background-color: ${(props) => props.theme['base-card']};
 
@@ -27,31 +27,37 @@ export const FieldContainer = styled.div`
   flex-direction: column;
   width: 100%;
 
-  input {
-    height: 2.5rem;
-    color: ${(props) => props.theme['base-text']};
-
-    background-color: ${(props) => props.theme['base-input']};
-
-    border: 1px solid ${(props) => props.theme['base-button']};
-    border-radius: 4px;
-
-    padding: 0.75rem;
-
-    transition: 0.1s;
-  }
-
-  input:focus {
-    border-color: ${(props) => props.theme['yellow-dark']};
-  }
-
-  input:disabled {
-    background-color: ${(props) => props.theme['base-hover']};
-  }
-
   label {
     color: ${(props) => props.theme['base-text']};
     font-size: 0.875rem;
+  }
+`
+
+export const FormInput = styled.input`
+  width: 100%;
+  height: 2.5rem;
+  color: ${(props) => props.theme['base-text']};
+
+  background-color: ${(props) => props.theme['base-input']};
+
+  border: 1px solid ${(props) => props.theme['base-button']};
+  border-radius: 4px;
+
+  padding: 0.75rem;
+
+  transition: 0.1s;
+
+  &::placeholder {
+    color: ${(props) => props.theme['base-label']};
+    font-size: 0.875rem;
+  }
+
+  &:focus {
+    border-color: ${(props) => props.theme['yellow-dark']};
+  }
+
+  &:disabled {
+    background-color: ${(props) => props.theme['base-hover']};
   }
 `
 

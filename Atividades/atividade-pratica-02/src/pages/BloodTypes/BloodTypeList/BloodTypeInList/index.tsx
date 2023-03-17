@@ -9,6 +9,7 @@ import {
   DeleteButton,
   SaveButton,
   FieldContainer,
+  FormInput,
 } from './styles'
 
 interface BloodTypeInListProps {
@@ -93,7 +94,7 @@ export function BloodTypeInList({
       <InputsContainer>
         <FieldContainer>
           <label htmlFor="type">Tipo</label>
-          <input
+          <FormInput
             disabled={!isEditing}
             id="type"
             type="text"
@@ -105,7 +106,7 @@ export function BloodTypeInList({
 
         <FieldContainer>
           <label htmlFor="factor">Fator</label>
-          <input
+          <FormInput
             disabled={!isEditing}
             id="factor"
             type="text"
