@@ -58,29 +58,6 @@ export const ButtonContainer = styled.div`
   gap: 0.5rem;
 `
 
-export const SubmitButton = styled.button`
-  width: 15rem;
-  height: 2.5rem;
-
-  border-radius: 6px;
-
-  color: ${({ theme }) => theme.white};
-  background-color: ${({ theme }) => theme.yellow};
-
-  text-transform: uppercase;
-
-  font-weight: 700;
-  font-size: 0.875rem;
-  line-height: 160%;
-
-  transition: 0.2s;
-
-  &:hover {
-    cursor: pointer;
-    background-color: ${({ theme }) => theme['yellow-dark']};
-  }
-`
-
 const BaseButton = styled.button`
   width: 10rem;
   height: 2.5rem;
@@ -114,5 +91,14 @@ export const DeleteButton = styled(BaseButton)`
   &:hover {
     cursor: pointer;
     background-color: ${({ theme }) => theme['red-dark']};
+  }
+`
+
+export const SaveButton = styled(BaseButton)`
+  background-color: ${({ theme }) => theme.green};
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme['green-dark']};
   }
 `
