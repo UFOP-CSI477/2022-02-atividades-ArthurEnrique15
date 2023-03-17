@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const BloodTypeFormContainer = styled.div`
+export const BloodTypeFormContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
