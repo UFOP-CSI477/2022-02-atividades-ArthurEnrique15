@@ -3,12 +3,16 @@ import 'dotenv/config';
 import 'reflect-metadata';
 import 'express-async-errors';
 
+import cors from 'cors';
+
 import '../db-config';
 
 import { router } from './routes';
 import { AppError } from './errors/app-error';
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
