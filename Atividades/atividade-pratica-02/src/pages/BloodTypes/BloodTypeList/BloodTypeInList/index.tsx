@@ -73,18 +73,16 @@ export function BloodTypeInList({
   }
 
   function handleDelete() {
-    const confirmed = window.confirm(
-      'Deseja realmente deletar este tipo sanguíneo?',
-    )
+    const confirmed = window.confirm('Deseja realmente deletar este registro?')
     if (confirmed) {
       axios
         .delete(`${serverUrl}/blood-type`, { headers: { id } })
         .then(() => {
-          alert('Tipo sanguíneo deletado com sucesso!')
+          alert('Registro deletado com sucesso!')
           handleDeleteBloodType(id)
         })
         .catch((error) => {
-          alert('Erro ao deletar tipo sanguíneo')
+          alert('Erro ao deletar registro')
           console.error(error)
         })
     }
