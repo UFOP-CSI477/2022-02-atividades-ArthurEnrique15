@@ -99,12 +99,18 @@ export class PersonService {
   }
 
   async findAll() {
-    const persons = await this.personRepository.find();
+    const persons = await this.personRepository.createQueryBuilder('person')
+      .leftJoinAndSelect('person.bloodType', 'bloodType')
+      .getMany();
+
     return persons;
   }
 
   async findById(id: number) {
-    const person = await this.personRepository.findOne({ where: { id } });
+    const person = await this.personRepository.createQueryBuilder('person')
+      .leftJoinAndSelect('person.bloodType', 'bloodType')
+      .where({ id })
+      .getOne();
 
     if (!person) {
       throw new AppError('Person not found!');
@@ -114,7 +120,11 @@ export class PersonService {
   }
 
   async findByName(name: string) {
-    const persons = await this.personRepository.find({ where: { name } });
+    const persons = await this.personRepository.createQueryBuilder('person')
+      .leftJoinAndSelect('person.bloodType', 'bloodType')
+      .where({ name })
+      .getMany();
+
     return persons;
   }
 }
