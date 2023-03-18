@@ -36,11 +36,11 @@ export function BloodTypeForm() {
     axios
       .post(`${serverUrl}/blood-type`, { type, factor })
       .then((response) => {
-        alert('Tipo sanguíneo cadastrado com sucesso')
+        alert('Cadastro realizado com sucesso')
       })
       .catch((error) => {
         console.error(error)
-        alert('Houve um erro ao cadastrar o tipo sanguíneo')
+        alert('Houve um erro ao cadastrar')
       })
   }
 

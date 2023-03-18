@@ -46,11 +46,11 @@ export function CollectionPlaceForm() {
         complement,
       })
       .then((response) => {
-        alert('Local de coleta cadastrado com sucesso')
+        alert('Cadastro realizado com sucesso')
       })
       .catch((error) => {
         console.error(error)
-        alert('Houve um erro ao cadastrar o local de coleta')
+        alert('Houve um erro ao cadastrar')
       })
   }
 
