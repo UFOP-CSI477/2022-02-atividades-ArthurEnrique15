@@ -26,8 +26,9 @@ export function BloodTypeForm() {
     inputsActions[id as keyof typeof inputsActions]()
   }
 
-  function handleSubmitForm() {
+  function handleSubmitForm(event: React.FormEvent<HTMLButtonElement>) {
     if (!type || !factor) {
+      event.preventDefault()
       alert('Por favor, preencha todos os campos')
       return
     }

@@ -31,8 +31,9 @@ export function CollectionPlaceForm() {
     inputsActions[id as keyof typeof inputsActions]()
   }
 
-  function handleSubmitForm() {
+  function handleSubmitForm(event: React.FormEvent<HTMLButtonElement>) {
     if (!name || !number || !street || !complement) {
+      event.preventDefault()
       alert('Por favor, preencha todos os campos')
       return
     }
