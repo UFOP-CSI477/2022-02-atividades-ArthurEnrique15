@@ -76,7 +76,7 @@ export class PersonService {
       number,
       complement,
       street,
-      bloodType: bloodType || undefined,
+      bloodType: bloodTypeId !== null ? bloodType || undefined : null,
     });
 
     return updateResponse;

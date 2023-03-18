@@ -29,7 +29,7 @@ export class Person {
     street: string;
 
   @ManyToOne((type) => BloodType, (bloodType) => bloodType.id)
-    bloodType?: BloodType;
+    bloodType?: BloodType | null;
 
   @CreateDateColumn()
     createdAt: Date;

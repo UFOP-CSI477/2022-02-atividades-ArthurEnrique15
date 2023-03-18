@@ -14,5 +14,5 @@ export type UpdatePersonDTO = {
   number?: string;
   complement?: string;
   street?: string;
-  bloodTypeId?: number;
+  bloodTypeId?: number | null;
 }
