@@ -89,15 +89,6 @@ export function PersonInList({
       return
     }
 
-    console.log({
-      document,
-      name,
-      number,
-      street,
-      complement,
-      bloodTypeId: selectedBloodType !== -1 ? selectedBloodType : null,
-    })
-
     const confirmed = window.confirm('Deseja realmente atualizar os dados?')
 
     if (confirmed) {

@@ -54,8 +54,6 @@ export function PersonForm({ bloodTypes }: PersonFormProps) {
       return
     }
 
-    console.log(selectedBloodType)
-
     axios
       .post(`${serverUrl}/person`, {
         document,
