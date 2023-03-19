@@ -96,12 +96,20 @@ export class DonationService {
   }
 
   async findAll() {
-    const donations = await this.donationRepository.find();
+    const donations = await this.donationRepository.createQueryBuilder('donation')
+      .leftJoinAndSelect('donation.person', 'person')
+      .leftJoinAndSelect('donation.collectionPlace', 'collectionPlace')
+      .getMany();
+
     return donations;
   }
 
   async findById(id: number) {
-    const donation = await this.donationRepository.findOne({ where: { id } });
+    const donation = await this.donationRepository.createQueryBuilder('person')
+      .leftJoinAndSelect('donation.person', 'person')
+      .leftJoinAndSelect('donation.collectionPlace', 'collectionPlace')
+      .where({ id })
+      .getOne();
 
     if (!donation) {
       throw new AppError('Donation not found!');
