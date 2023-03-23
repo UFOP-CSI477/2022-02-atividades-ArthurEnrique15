@@ -9,6 +9,7 @@ import { AppError } from '../errors/app-error';
 interface StatementDTO {
   value: number
   type: string
+  description: string
   token: string
 }
 
@@ -22,7 +23,7 @@ export class StatementService {
     this.userRepository = dataSource.getRepository(User);
   }
 
-  async create({ value, type, token }: StatementDTO) {
+  async create({ value, type, description, token }: StatementDTO) {
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET ?? '');
 
     if (!decodedToken) {
@@ -47,7 +48,7 @@ export class StatementService {
       throw new AppError('Valor de retirada maior que o valor disponível!');
     }
 
-    const statement = this.statementRepository.create({ value, type, user });
+    const statement = this.statementRepository.create({ value, type, description, user });
 
     const createdStatement = await this.statementRepository.save(statement);
 

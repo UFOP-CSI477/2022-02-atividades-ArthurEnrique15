@@ -9,10 +9,15 @@ export class StatementController {
   }
 
   async create(request: Request, response: Response) {
-    const { value, type } = request.body;
+    const { value, type, description } = request.body;
     const { token } = request.headers;
 
-    const createResponse = await this.statementService.create({ value, type, token: token as string });
+    const createResponse = await this.statementService.create({
+      value: Number(value),
+      type,
+      description,
+      token: token as string,
+    });
 
     return response.json(createResponse);
   }

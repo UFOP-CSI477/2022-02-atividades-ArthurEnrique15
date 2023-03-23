@@ -19,6 +19,9 @@ export class Statement {
   @Column()
     type: string;
 
+  @Column()
+    description: string;
+
   @ManyToOne((type) => User, (user) => user.id)
     user: User;
 

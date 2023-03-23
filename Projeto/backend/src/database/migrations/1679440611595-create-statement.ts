@@ -23,6 +23,11 @@ export class createStatement1679440611595 implements MigrationInterface {
           isNullable: false,
         },
         {
+          name: 'description',
+          type: 'varchar',
+          isNullable: false,
+        },
+        {
           name: 'userId',
           type: 'int',
           isNullable: false,
