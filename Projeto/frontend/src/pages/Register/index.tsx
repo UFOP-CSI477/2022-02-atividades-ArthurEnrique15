@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { serverUrl } from '../../constants/env'
 import { STORAGE_NAME } from '../../constants/storage-name'
 import {
-  LoginContainer,
+  RegisterContainer,
   FormContainer,
   InputsContainer,
   TitleContainer,
@@ -15,7 +15,7 @@ import {
   RegisterTextContainer,
 } from './styles'
 
-export function Login() {
+export function Register() {
   const navigate = useNavigate()
 
   const [username, setUsername] = useState('')
@@ -47,24 +47,23 @@ export function Login() {
     }
 
     axios
-      .post(`${serverUrl}/user/login`, { username, password })
+      .post(`${serverUrl}/user`, { username, password })
       .then((response) => {
-        alert('Login realizado com sucesso')
+        alert('Cadastro realizado com sucesso')
         console.log(response.data)
-        window.sessionStorage.setItem(STORAGE_NAME, response.data.token)
-        navigate('/')
+        navigate('/login')
       })
       .catch((error) => {
         console.error(error)
-        alert('Informações incorretas')
+        alert('Erro ao cadastrar')
       })
   }
 
   return (
-    <LoginContainer>
+    <RegisterContainer>
       <FormContainer>
         <TitleContainer>
-          <span>Login</span>
+          <span>Cadastro</span>
         </TitleContainer>
         <InputsContainer>
           <FieldContainer>
@@ -84,16 +83,16 @@ export function Login() {
 
         <ButtonContainer>
           <SubmitButton type="submit" onClick={handleSubmitForm}>
-            Login
+            Cadastrar
           </SubmitButton>
         </ButtonContainer>
       </FormContainer>
       <RegisterTextContainer>
         <span>
-          Não possui uma conta?{' '}
-          <a onClick={() => navigate('/register')}>Cadastre-se</a>
+          Já possui uma conta?{' '}
+          <a onClick={() => navigate('/login')}>Faça login</a>
         </span>
       </RegisterTextContainer>
-    </LoginContainer>
+    </RegisterContainer>
   )
 }
