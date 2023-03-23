@@ -38,7 +38,7 @@ export function Home() {
     setDecoded(decoded)
 
     axios
-      .get(`${serverUrl}/statement`, { headers: { storedToken } })
+      .get(`${serverUrl}/statement`, { headers: { token: storedToken } })
       .then((response) => {
         setStatement(response.data.statement)
         setBalance(response.data.balance)
