@@ -8,9 +8,20 @@ export const HomeContainer = styled.main`
 
   width: 100%;
 
-  margin-top: 3rem;
+  gap: 1rem;
+`
 
-  gap: 5rem;
+export const LogoutContainer = styled.div`
+  color: ${({ theme }) => theme['base-label']};
+
+  a {
+    color: ${({ theme }) => theme['base-text']};
+  }
+
+  a:hover {
+    cursor: pointer;
+    color: ${({ theme }) => theme['base-title']};
+  }
 `
 
 export const BalanceContainer = styled.div`

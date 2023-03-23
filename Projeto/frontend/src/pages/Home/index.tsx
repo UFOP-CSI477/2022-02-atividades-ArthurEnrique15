@@ -1,5 +1,6 @@
 import {
   HomeContainer,
+  LogoutContainer,
   BalanceContainer,
   StatementContainer,
   TitleContainer,
@@ -39,8 +40,17 @@ export function Home() {
       })
   }, [navigate])
 
+  function handleLogout() {
+    sessionStorage.removeItem(STORAGE_NAME)
+    alert('Logout realizado com sucesso')
+    navigate('/login')
+  }
+
   return (
     <HomeContainer>
+      <LogoutContainer>
+        <a onClick={handleLogout}>Sair</a>
+      </LogoutContainer>
       <BalanceContainer>
         <span>Saldo: </span>
         <span>R${balance}</span>
