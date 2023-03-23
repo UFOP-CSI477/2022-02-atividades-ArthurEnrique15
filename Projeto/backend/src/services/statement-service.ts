@@ -74,10 +74,10 @@ export class StatementService {
       throw new AppError('Usuário não encontrado!');
     }
 
-    const statements = await this.statementRepository.createQueryBuilder('tb_statement')
+    const statement = await this.statementRepository.createQueryBuilder('tb_statement')
       .innerJoinAndSelect('tb_statement.user', 'user', 'user.id = :userId', { userId })
       .getMany();
 
-    return statements;
+    return { balance: user.balance, statement };
   }
 }
