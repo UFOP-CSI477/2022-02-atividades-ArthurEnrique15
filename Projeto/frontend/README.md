@@ -1,12 +1,12 @@
-# Atividade prática 2
+# Trabalho final - frontend
 
 ## Tecnologias utilizadas
 
-Para o desenvolvimento dos CRUDs foi criado um projeto em React utilizando o Vite com typescript + swc. Também foi utilizado o eslint para padronizar o estilo do código automaticamente.
+Para o desenvolvimento do trabalho foi criado um projeto em React utilizando o Vite com typescript + swc. Também foi utilizado o eslint para padronizar o estilo do código automaticamente.
 
 ## Instalação
 
-Para começar, clone o repositório e entre dentro da pasta *Atividades/atividade-pratica-02* pelo terminal.
+Para começar, clone o repositório e entre dentro da pasta *Projeto/frontend* pelo terminal.
 
 Em seguida, execute o comando **npm install** para instalar todas as dependências do projeto
 
