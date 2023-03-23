@@ -46,7 +46,7 @@ export class UserService {
       throw new AppError('Invalid information!');
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET ?? '', { expiresIn: '1d' });
+    const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET ?? '', { expiresIn: '1d' });
 
     return { token };
   }
