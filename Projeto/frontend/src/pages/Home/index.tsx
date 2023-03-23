@@ -1,3 +1,12 @@
+import jwt from 'jwt-decode'
+import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { STORAGE_NAME } from '../../constants/storage-name'
+import { ListItem } from './ListItem'
+import axios from 'axios'
+import { serverUrl } from '../../constants/env'
+import { Statement } from '../../interfaces/IStatement'
+import { CreateItemForm } from './CreateItemForm'
 import {
   HomeContainer,
   LogoutContainer,
@@ -7,35 +16,30 @@ import {
   ListContainer,
 } from './styles'
 
-import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import { STORAGE_NAME } from '../../constants/storage-name'
-import { ListItem } from './ListItem'
-import axios from 'axios'
-import { serverUrl } from '../../constants/env'
-import { Statement } from '../../interfaces/IStatement'
-import { CreateItemForm } from './CreateItemForm'
-
 export function Home() {
   const navigate = useNavigate()
 
   const [statement, setStatement] = useState<Statement[]>([])
   const [balance, setBalance] = useState<number>(0)
   const [token, setToken] = useState('')
+  const [decoded, setDecoded] = useState<any>({})
 
   useEffect(() => {
     const token = sessionStorage.getItem(STORAGE_NAME)
 
     if (!token) {
       navigate('/login')
+      return
     }
 
     setToken(token as string)
 
+    const decoded = jwt(token)
+    setDecoded(decoded)
+
     axios
       .get(`${serverUrl}/statement`, { headers: { token } })
       .then((response) => {
-        console.log(response.data)
         setStatement(response.data.statement)
         setBalance(response.data.balance)
       })
@@ -53,6 +57,7 @@ export function Home() {
   return (
     <HomeContainer>
       <LogoutContainer>
+        <span>Usuário: {decoded.username}</span>
         <a onClick={handleLogout}>Sair</a>
       </LogoutContainer>
       <BalanceContainer>

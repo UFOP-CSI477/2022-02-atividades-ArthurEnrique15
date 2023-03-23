@@ -14,6 +14,11 @@ export const HomeContainer = styled.main`
 `
 
 export const LogoutContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  gap: 2rem;
+
   color: ${({ theme }) => theme['base-label']};
 
   a {
