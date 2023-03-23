@@ -56,7 +56,6 @@ export function CreateItemForm({ token }: CreateItemFormProps) {
       )
       .then((response) => {
         alert('Lançamento cadastrado com sucesso')
-        console.log(response.data)
       })
       .catch((error) => {
         console.error(error)

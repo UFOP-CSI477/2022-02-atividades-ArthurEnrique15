@@ -50,7 +50,6 @@ export function Register() {
       .post(`${serverUrl}/user`, { username, password })
       .then((response) => {
         alert('Cadastro realizado com sucesso')
-        console.log(response.data)
         navigate('/login')
       })
       .catch((error) => {

@@ -50,7 +50,6 @@ export function Login() {
       .post(`${serverUrl}/user/login`, { username, password })
       .then((response) => {
         alert('Login realizado com sucesso')
-        console.log(response.data)
         window.sessionStorage.setItem(STORAGE_NAME, response.data.token)
         navigate('/')
       })
