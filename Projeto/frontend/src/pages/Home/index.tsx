@@ -64,7 +64,13 @@ export function Home() {
         <TitleContainer>Extrato</TitleContainer>
         <ListContainer>
           {statement.map((item) => (
-            <ListItem key={item.id} value={item.value} type={item.type} />
+            <ListItem
+              key={item.id}
+              value={item.value}
+              type={item.type}
+              date={item.createdAt.toString()}
+              description={item.description}
+            />
           ))}
         </ListContainer>
       </StatementContainer>
