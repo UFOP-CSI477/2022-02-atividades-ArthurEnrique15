@@ -25,20 +25,20 @@ export function Home() {
   const [decoded, setDecoded] = useState<any>({})
 
   useEffect(() => {
-    const token = sessionStorage.getItem(STORAGE_NAME)
+    const storedToken = sessionStorage.getItem(STORAGE_NAME)
 
-    if (!token) {
+    if (!storedToken) {
       navigate('/login')
       return
     }
 
-    setToken(token as string)
+    setToken(storedToken as string)
 
-    const decoded = jwt(token)
+    const decoded = jwt(storedToken)
     setDecoded(decoded)
 
     axios
-      .get(`${serverUrl}/statement`, { headers: { token } })
+      .get(`${serverUrl}/statement`, { headers: { storedToken } })
       .then((response) => {
         setStatement(response.data.statement)
         setBalance(response.data.balance)
