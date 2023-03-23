@@ -14,12 +14,14 @@ import { ListItem } from './ListItem'
 import axios from 'axios'
 import { serverUrl } from '../../constants/env'
 import { Statement } from '../../interfaces/IStatement'
+import { CreateItemForm } from './CreateItemForm'
 
 export function Home() {
   const navigate = useNavigate()
 
   const [statement, setStatement] = useState<Statement[]>([])
   const [balance, setBalance] = useState<number>(0)
+  const [token, setToken] = useState('')
 
   useEffect(() => {
     const token = sessionStorage.getItem(STORAGE_NAME)
@@ -27,6 +29,8 @@ export function Home() {
     if (!token) {
       navigate('/login')
     }
+
+    setToken(token as string)
 
     axios
       .get(`${serverUrl}/statement`, { headers: { token } })
@@ -55,6 +59,7 @@ export function Home() {
         <span>Saldo: </span>
         <span>R${balance}</span>
       </BalanceContainer>
+      <CreateItemForm token={token} />
       <StatementContainer>
         <TitleContainer>Extrato</TitleContainer>
         <ListContainer>

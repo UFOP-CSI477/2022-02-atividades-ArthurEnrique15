@@ -9,6 +9,8 @@ export const HomeContainer = styled.main`
   width: 100%;
 
   gap: 1rem;
+
+  margin-bottom: 5rem;
 `
 
 export const LogoutContainer = styled.div`
